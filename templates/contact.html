@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="text-center mb-12">
+    <h1 class="text-4xl font-bold">Contact Me</h1>
+    <p class="text-gray-600 mt-2">Let’s build something together</p>
+</div>
+
+<div class="grid md:grid-cols-2 gap-8">
+
+    <!-- CONTACT INFO -->
+    <div class="bg-white p-6 rounded shadow">
+        <h2 class="text-xl font-bold mb-4">Get in Touch</h2>
+
+        <p class="mb-2">Email: godfrey@example.com</p>
+        <p class="mb-2">WhatsApp: +27 XX XXX XXXX</p>
+        <p class="mb-2">Location: South Africa</p>
+
+    </div>
+
+    <!-- FORM -->
+    <div class="bg-white p-6 rounded shadow">
+
+        <h2 class="text-xl font-bold mb-4">Send a Message</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <input type="text" placeholder="Your Name"
+                class="w-full border p-2 mb-4 rounded">
+
+            <input type="email" placeholder="Your Email"
+                class="w-full border p-2 mb-4 rounded">
+
+            <textarea placeholder="Your Message"
+                class="w-full border p-2 mb-4 rounded h-32"></textarea>
+
+            <button class="bg-blue-600 text-white px-4 py-2 rounded w-full">
+                Send Message
+            </button>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

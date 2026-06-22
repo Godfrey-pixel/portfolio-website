@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="text-center py-20">
+
+    <h1 class="text-5xl font-bold mb-4">
+        Hi, I'm Godfrey
+    </h1>
+
+    <p class="text-xl text-gray-600 mb-8">
+        Django & Web Developer building modern websites for businesses
+    </p>
+
+    <a href="/contact/" class="bg-blue-600 text-white px-6 py-3 rounded-lg">
+        Hire Me
+    </a>
+
+</div>
+
+<!-- SERVICES PREVIEW -->
+<div class="grid md:grid-cols-3 gap-6">
+
+    <div class="bg-white p-6 rounded shadow">
+        <h3 class="font-bold mb-2">Business Websites</h3>
+        <p>Modern, responsive websites for small businesses.</p>
+    </div>
+
+    <div class="bg-white p-6 rounded shadow">
+        <h3 class="font-bold mb-2">Django Apps</h3>
+        <p>Custom web applications with dashboards and logic.</p>
+    </div>
+
+    <div class="bg-white p-6 rounded shadow">
+        <h3 class="font-bold mb-2">Maintenance</h3>
+        <p>Hosting, updates, and long-term support.</p>
+    </div>
+
+</div>
+
+{% endblock %}
