@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="max-w-5xl mx-auto px-4 py-10">
+
+    <!-- PROJECT IMAGE -->
+    <img src="{{ project.image.url }}"
+         class="w-full h-96 object-cover rounded-lg shadow-md">
+
+    <!-- TITLE -->
+    <h1 class="text-4xl font-bold mt-6">
+        {{ project.title }}
+    </h1>
+
+    <!-- TECH STACK -->
+    {% if project.technologies %}
+    <p class="text-gray-600 mt-2">
+        <strong>Tech Stack:</strong> {{ project.technologies }}
+    </p>
+    {% endif %}
+
+    <!-- DESCRIPTION -->
+    <div class="mt-6 text-gray-700 leading-relaxed">
+        {{ project.description }}
+    </div>
+
+    <!-- LINKS -->
+    <div class="mt-8 flex gap-4">
+
+        {% if project.github_link %}
+        <a href="{{ project.github_link }}" target="_blank"
+           class="bg-gray-800 text-white px-5 py-2 rounded hover:bg-gray-900">
+            GitHub
+        </a>
+        {% endif %}
+
+        {% if project.live_link %}
+        <a href="{{ project.live_link }}" target="_blank"
+           class="bg-green-600 text-white px-5 py-2 rounded hover:bg-green-700">
+            Live Demo
+        </a>
+        {% endif %}
+
+    </div>
+
+    <!-- BACK BUTTON -->
+    <div class="mt-10">
+        <a href="{% url 'projects' %}" class="text-blue-600 hover:underline">
+            ← Back to Projects
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

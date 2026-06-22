@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="max-w-6xl mx-auto px-4 py-10">
+
+    <!-- PAGE TITLE -->
+    <h1 class="text-4xl font-bold text-center mb-10">
+        My Projects
+    </h1>
+
+    <!-- PROJECT GRID -->
+    <div class="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
+
+        {% for project in projects %}
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+
+            <!-- IMAGE -->
+            <img src="{{ project.image.url }}" class="w-full h-48 object-cover">
+
+            <!-- CONTENT -->
+            <div class="p-4">
+
+                <h2 class="text-xl font-bold mb-2">
+                    {{ project.title }}
+                </h2>
+
+                <p class="text-gray-600 text-sm mb-3">
+                    {{ project.description|truncatechars:120 }}
+                </p>
+
+                {% if project.technologies %}
+                <p class="text-xs text-gray-500 mb-3">
+                    <strong>Tech:</strong> {{ project.technologies }}
+                </p>
+                {% endif %}
+
+                <!-- BUTTON -->
+                <a href="{% url 'project_detail' project.slug %}"
+                   class="inline-block mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                    View Project
+                </a>
+
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}
