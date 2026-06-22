@@ -2,40 +2,130 @@
 
 {% block content %}
 
-<div class="text-center py-20">
+<!-- HERO -->
+<section class="py-24 text-center bg-white rounded-xl shadow-sm">
 
-    <h1 class="text-5xl font-bold mb-4">
-        Hi, I'm Godfrey
-    </h1>
+    <div class="max-w-5xl mx-auto px-6">
 
-    <p class="text-xl text-gray-600 mb-8">
-        Django & Web Developer building modern websites for businesses
-    </p>
+        <p class="text-blue-600 font-semibold tracking-widest uppercase mb-4">
+            Web Developer • Django • Python • Frontend
+        </p>
 
-    <a href="/contact/" class="bg-blue-600 text-white px-6 py-3 rounded-lg">
-        Hire Me
-    </a>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            Building Modern Web Applications That Solve Real Problems
+        </h1>
 
-</div>
+        <p class="text-gray-700 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+            I design and build scalable, responsive web applications using Django, Python, and modern frontend tools.
+            My focus is clean architecture, performance, and real-world usability.
+        </p>
 
-<!-- SERVICES PREVIEW -->
-<div class="grid md:grid-cols-3 gap-6">
+        <div class="flex justify-center gap-4 flex-wrap">
 
-    <div class="bg-white p-6 rounded shadow">
-        <h3 class="font-bold mb-2">Business Websites</h3>
-        <p>Modern, responsive websites for small businesses.</p>
+            <a href="{% url 'projects' %}"
+               class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition shadow">
+                View Projects
+            </a>
+
+            <a href="/contact/"
+               class="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition shadow">
+                Contact Me
+            </a>
+
+        </div>
+
     </div>
 
-    <div class="bg-white p-6 rounded shadow">
-        <h3 class="font-bold mb-2">Django Apps</h3>
-        <p>Custom web applications with dashboards and logic.</p>
+</section>
+
+
+<!-- FEATURED PROJECTS -->
+<section class="py-20">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+        <h2 class="text-3xl font-bold text-center mb-12">
+            Featured Projects
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+            {% for project in projects|slice:":3" %}
+
+            <div class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition">
+
+                {% if project.image %}
+                <img src="{{ project.image.url }}" class="h-48 w-full object-cover">
+                {% endif %}
+
+                <div class="p-6">
+
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">
+                        {{ project.title }}
+                    </h3>
+
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        {{ project.description|truncatechars:120 }}
+                    </p>
+
+                    <a href="{% url 'project_detail' project.slug %}"
+                       class="text-blue-600 mt-4 inline-block font-medium hover:underline">
+                        View Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
     </div>
 
-    <div class="bg-white p-6 rounded shadow">
-        <h3 class="font-bold mb-2">Maintenance</h3>
-        <p>Hosting, updates, and long-term support.</p>
+</section>
+
+
+<!-- ABOUT -->
+<section class="py-20 bg-white rounded-xl shadow-sm">
+
+    <div class="max-w-4xl mx-auto text-center px-6">
+
+        <h2 class="text-3xl font-bold mb-6">
+            About Me
+        </h2>
+
+        <p class="text-gray-700 leading-relaxed text-lg">
+            I am a self-driven web developer focused on building clean, scalable, and user-friendly web applications.
+            I enjoy working with Django, Python, and modern frontend tools to bring ideas to life.
+            I am currently focused on improving my backend architecture skills and building production-ready systems.
+        </p>
+
     </div>
 
-</div>
+</section>
+
+
+<!-- CTA -->
+<section class="py-20 text-center">
+
+    <div class="max-w-3xl mx-auto px-6">
+
+        <h2 class="text-3xl font-bold mb-4">
+            Let’s Work Together
+        </h2>
+
+        <p class="text-gray-700 mb-8">
+            I am available for freelance projects, internships, and collaborations.
+        </p>
+
+        <a href="/contact/"
+           class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition shadow">
+            Get In Touch
+        </a>
+
+    </div>
+
+</section>
 
 {% endblock %}
